@@ -1,5 +1,6 @@
 import pygame, controls
 from gun import Gun
+from pygame.sprite import Group
 
 def run():
 
@@ -8,12 +9,14 @@ def run():
     pygame.display.set_caption("Skate Invaders")
     bg_color = (0, 0, 0)
     gun = Gun(screen)
+    bullets = Group()
 
     while True:
-        controls.events(gun)
+        controls.events(screen, gun, bullets)
         gun.update_gun()
-        screen.fill(bg_color)
-        gun.gun_output()
-        pygame.display.flip()
+        controls.update(bg_color, screen, gun, bullets)
+        controls.update_bullets(bullets)
+
+
 
 run()
