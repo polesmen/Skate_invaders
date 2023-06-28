@@ -6,7 +6,7 @@ class Bullet(pygame.sprite.Sprite):
         """bullet initialisation in gun position"""
         super(Bullet, self).__init__()
         self.screen = screen
-        self.rect = pygame.Rect(0, 0, 4, 12)
+        self.rect = pygame.Rect(0, 0, 5, 12)
         self.color = 43, 237, 211
         self.speed = 1
         self.rect.centerx = gun.rect.centerx
