@@ -1,10 +1,12 @@
 import pygame
+from pygame.sprite import Sprite
+from stats import Stats
 
-class Gun():
+class Gun(Sprite):
 
     def __init__(self, screen):
         """Gun initialisation"""
-
+        super(Gun, self).__init__()
         self.screen = screen
         self.image = pygame.image.load('images/skate_invader_gun.png')
         self.rect = self.image.get_rect()
@@ -15,9 +17,10 @@ class Gun():
         self.mright = False
         self.mleft = False
 
+
     def gun_output(self):
-        """Gun -maging"""
-        self.screen.blit(self.image,self.rect)
+        """Gun imaging"""
+        self.screen.blit(self.image, self.rect)
 
     def update_gun(self):
         """gun position update"""
@@ -30,5 +33,5 @@ class Gun():
 
     def create_gun(self):
         """placing gun at center of screen"""
-        self.rect.centerx = self.center
+        self.center = self.screen_rect.centerx
 
